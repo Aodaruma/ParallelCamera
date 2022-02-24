@@ -4,8 +4,6 @@
 
 現在は **version 1.11** が最新です。
 
-[![Watch the video](https://img.youtube.com/vi/apWXd0f95eE/maxresdefault.jpg)](https://youtu.be/apWXd0f95eE)
-
 以下のスクリプトが備わっています。
 
 ## ParallelCamera.cam
