@@ -6,14 +6,14 @@ developed by Aodaruma (@Aodaruma_)
 ]]--
 
 --------------------------------------------------
-@ƒJƒƒ‰‹ü‚É“¯Šú
+@ã‚«ãƒ¡ãƒ©è¦–ç·šã«åŒæœŸ
 --------------------------------------------------
---track0:•ÏŠ·“x%,0,300,100
---track1:‚¸‚êX,-3000,3000,0,0.01
---track2:‚¸‚êY,-3000,3000,0,0.01
---track3:‚¸‚êZ,-5000,5000,0,0.01
---check0:•\¦,1
---dialog:Seed,local seed=333;ƒJƒƒ‰‚Ì•ûŒü‚ğŒü‚­/chk,local isToCamera=1;‰ñ“]ƒ‰ƒ“ƒ_ƒ€,local angleRand=10;ƒVƒƒƒh[‚©‚ç‘ÎÛŠO‚É‚·‚é/chk,local isInvalidShadow=1;À•W‚ğ‰ÁZ/chk,local idObj=0;•¡”obj‘Î‰/chk,local isMulti=1;
+--track0:å¤‰æ›åº¦%,0,300,100
+--track1:ãšã‚ŒX,-3000,3000,0,0.01
+--track2:ãšã‚ŒY,-3000,3000,0,0.01
+--track3:ãšã‚ŒZ,-5000,5000,0,0.01
+--check0:è¡¨ç¤º,1
+--dialog:Seed,local seed=333;ã‚«ãƒ¡ãƒ©ã®æ–¹å‘ã‚’å‘ã/chk,local isToCamera=1;å›è»¢ãƒ©ãƒ³ãƒ€ãƒ ,local angleRand=10;ã‚·ãƒ£ãƒ‰ãƒ¼ã‹ã‚‰å¯¾è±¡å¤–ã«ã™ã‚‹/chk,local isInvalidShadow=1;åº§æ¨™ã‚’åŠ ç®—/chk,local idObj=0;è¤‡æ•°objå¯¾å¿œ/chk,local isMulti=1;
 
 local disX, disY, disZ=obj.track1, obj.track2, obj.track3
 local cam=obj.getoption("camera_param")
@@ -44,9 +44,9 @@ end
 end
 
 --------------------------------------------------
-@î•ñ•\¦
+@æƒ…å ±è¡¨ç¤º
 --------------------------------------------------
---track0:•\¦,0,1,1,1
+--track0:è¡¨ç¤º,0,1,1,1
 --track1:fontsize,0,800,100
 --track2:CLayer,1,100,1,1
 
@@ -55,12 +55,12 @@ local size=obj.track1
 local disp=""
 local la=obj.track2
 
-obj.setfont("ƒƒCƒŠƒI",size)
+obj.setfont("ãƒ¡ã‚¤ãƒªã‚ª",size)
 if(PCi[la]==nil) then
-obj.load("‚»‚ÌƒŒƒCƒ„[‚É‚ÍƒJƒƒ‰§ŒäA\n‚Ü‚½‚Íî•ñ•\¦‚Éƒ`ƒFƒbƒN‚ª‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB")
+obj.load("ãã®ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«ã¯ã‚«ãƒ¡ãƒ©åˆ¶å¾¡ã€\nã¾ãŸã¯æƒ…å ±è¡¨ç¤ºã«ãƒã‚§ãƒƒã‚¯ãŒã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚")
 else
 disp="ParallelCamera\ncamX:"..tostring(PCi[la][1])..", camY:"..tostring(PCi[la][2])..", camZ:"..tostring(PCi[la][3]).."\n"
-.."cam‹üX:"..tostring(PCi[la][4])..", cam‹üY:"..tostring(PCi[la][5]).."cam‹üZ:"..tostring(PCi[la][6]).."\ncam‹ü˜a:"..tostring(PCi[la][7])
+.."camè¦–ç·šX:"..tostring(PCi[la][4])..", camè¦–ç·šY:"..tostring(PCi[la][5]).."camè¦–ç·šZ:"..tostring(PCi[la][6]).."\ncamè¦–ç·šå’Œ:"..tostring(PCi[la][7])
 
 obj.load(disp)
 end
