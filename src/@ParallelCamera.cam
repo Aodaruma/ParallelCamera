@@ -7,18 +7,16 @@ developed by Aodaruma (@Aodaruma_)
 --------------------------------------------------
 @ParallelCamera
 --------------------------------------------------
---track0:‹ü˜a,0,5000,1024
---track1:ƒJƒƒ‰c“],-1280,1280,0,0.01
---track2:ƒJƒƒ‰‰¡“],-1280,1280,0,0.01
---check0:ƒJƒƒ‰À•Wo—Í,0
---dialog:ƒJƒƒ‰î•ñ•\¦/chk,local info=0;ƒJƒƒ‰•½s‹üæpos,local ctPos={};Parallel(On)/chk,local isParallel=1;Z‹ü˜a/chk,local isTz=1;
+--track0:è¦–ç·šå’Œ,0,5000,1024
+--track1:ã‚«ãƒ¡ãƒ©ç¸¦è»¢,-1280,1280,0,0.01
+--track2:ã‚«ãƒ¡ãƒ©æ¨ªè»¢,-1280,1280,0,0.01
+--check0:ã‚«ãƒ¡ãƒ©åº§æ¨™å‡ºåŠ›,0
+--dialog:ã‚«ãƒ¡ãƒ©æƒ…å ±è¡¨ç¤º/chk,local info=0;ã‚«ãƒ¡ãƒ©å¹³è¡Œè¦–ç·šå…ˆpos,local ctPos={};Parallel(On)/chk,local isParallel=1;Zè¦–ç·šå’Œ/chk,local isTz=1;
 
-local focasZ=obj.track0
+local focus_length=obj.track0
 local ctUD=obj.track1/180*math.pi
 local ctLR=obj.track2/180*math.pi
 local isMemory=obj.check0
-local tmp={}
-local tmp2=""
 local layer=obj.layer
 local cam=obj.getoption("camera_param")
 local sin,cos = math.sin,math.cos
@@ -27,40 +25,35 @@ local sin,cos = math.sin,math.cos
 if(isParallel==1) then
 	-- focus position (euler angle, Ry*Rx)
 	if(isTz~=0) then
-		cam.tx=cam.x+cam.tx+cos(ctUD)*cos(ctLR)*focasZ
-		cam.ty=cam.y+cam.ty+sin(ctUD)*focasZ
-		cam.tz=cam.z+cam.tz+cos(ctUD)*sin(ctLR)*focasZ
+		cam.tx=cam.x+cam.tx+cos(ctUD)*cos(ctLR)*focus_length
+		cam.ty=cam.y+cam.ty+sin(ctUD)*focus_length
+		cam.tz=cam.z+cam.tz+cos(ctUD)*sin(ctLR)*focus_length
 	else
 		cam.tx=cam.x+cam.tx
 		cam.ty=cam.y+cam.ty
-		cam.tz=cam.z+cam.tz+focasZ
+		cam.tz=cam.z+cam.tz+focus_length
 	end
 
-	--À•Wo—Í
+	--åº§æ¨™å‡ºåŠ›
 	if(isMemory==true) then
 		if(PC==nil) then PC={} end
 		PC["layer"..layer]={cam.x, cam.y, cam.z, cam.tx, cam.ty, cam.tz}
 	end
 
-	--î•ñ•\¦
+	--æƒ…å ±è¡¨ç¤º
 	if(info==1) then
 		if(PCi==nil) then PCi={} end
-		if(isTz==0) then
-			tmp2="notSet"
-		else
-			tmp2=focasZ
-		end
 		if(PCi[layer]==nil) then PCi[layer]={} end
 		PCi[layer]={math.floor(cam.x),math.floor(cam.y),math.floor(cam.z),
 				math.floor(cam.tx),math.floor(cam.ty),math.floor(cam.tz),
-				math.floor(ctUD),math.floor(ctLR),focasZ}
+				math.floor(ctUD),math.floor(ctLR),focus_length}
 	end
 	obj.setoption("camera_param",cam)
 end
 --------------------------------------------------
-@ParallelCam(ŠÈˆÕ)
+@ParallelCam(ç°¡æ˜“)
 --------------------------------------------------
---track0:‹ü˜a,0,5000,1024
+--track0:è¦–ç·šå’Œ,0,5000,1024
 local cam=obj.getoption("camera_param")
 cam.tx=cam.x+cam.tx
 cam.ty=cam.y+cam.ty
