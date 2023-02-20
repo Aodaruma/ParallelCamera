@@ -25,9 +25,9 @@ local sin,cos = math.sin,math.cos
 if(isParallel==1) then
 	-- focus position (euler angle, Ry*Rx)
 	if(isTz~=0) then
-		cam.tx=cam.x+cam.tx+cos(ctUD)*cos(ctLR)*focus_length
+		cam.tx=cam.x+cam.tx+cos(ctUD)*sin(ctLR)*focus_length
 		cam.ty=cam.y+cam.ty+sin(ctUD)*focus_length
-		cam.tz=cam.z+cam.tz+cos(ctUD)*sin(ctLR)*focus_length
+		cam.tz=cam.z+cam.tz+cos(ctUD)*cos(ctLR)*focus_length
 	else
 		cam.tx=cam.x+cam.tx
 		cam.ty=cam.y+cam.ty
@@ -45,14 +45,14 @@ if(isParallel==1) then
 		if(PCi==nil) then PCi={} end
 		if(PCi[layer]==nil) then PCi[layer]={} end
 		PCi[layer]={
-			math.floor(cam.x),
-			math.floor(cam.y),
-			math.floor(cam.z),
-			math.floor(cam.tx),
-			math.floor(cam.ty),
-			math.floor(cam.tz),
-			math.floor(ctUD),
-			math.floor(ctLR),
+			cam.x,
+			cam.y,
+			cam.z,
+			cam.tx,
+			cam.ty,
+			cam.tz,
+			ctUD,
+			ctLR,
 			focus_length
 		}
 	end
