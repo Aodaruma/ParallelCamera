@@ -14,22 +14,23 @@ developed by Aodaruma (@Aodaruma_)
 --dialog:カメラ情報表示/chk,local info=0;カメラ平行視線先pos,local ctPos={};Parallel(On)/chk,local isParallel=1;Z視線和/chk,local isTz=1;
 
 local focasZ=obj.track0
-ctUD=obj.track1/100
-ctLR=(obj.track2+157)/100
+local ctUD=obj.track1/180*math.pi
+local ctLR=obj.track2/180*math.pi
 local isMemory=obj.check0
 local tmp={}
 local tmp2=""
 local layer=obj.layer
 local cam=obj.getoption("camera_param")
+local sin,cos = math.sin,math.cos
 
 
 if(isParallel==1) then
-	--平行移動
-	cam.tx=cam.x+(focasZ*math.cos(ctLR)*math.cos(ctUD))+cam.tx
-	cam.ty=cam.y+(focasZ*math.sin(ctUD))+cam.ty
-	cam.tz=cam.z+(focasZ*math.cos(ctUD)*math.sin(ctLR))+cam.tz
-
-	if(isTz==0) then
+	-- focus position (euler angle, Ry*Rx)
+	if(isTz~=0) then
+		cam.tx=cam.x+cam.tx+cos(ctUD)*cos(ctLR)*focasZ
+		cam.ty=cam.y+cam.ty+sin(ctUD)*focasZ
+		cam.tz=cam.z+cam.tz+cos(ctUD)*sin(ctLR)*focasZ
+	else
 		cam.tx=cam.x+cam.tx
 		cam.ty=cam.y+cam.ty
 		cam.tz=cam.z+cam.tz+focasZ
