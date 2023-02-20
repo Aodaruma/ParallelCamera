@@ -44,9 +44,17 @@ if(isParallel==1) then
 	if(info==1) then
 		if(PCi==nil) then PCi={} end
 		if(PCi[layer]==nil) then PCi[layer]={} end
-		PCi[layer]={math.floor(cam.x),math.floor(cam.y),math.floor(cam.z),
-				math.floor(cam.tx),math.floor(cam.ty),math.floor(cam.tz),
-				math.floor(ctUD),math.floor(ctLR),focus_length}
+		PCi[layer]={
+			math.floor(cam.x),
+			math.floor(cam.y),
+			math.floor(cam.z),
+			math.floor(cam.tx),
+			math.floor(cam.ty),
+			math.floor(cam.tz),
+			math.floor(ctUD),
+			math.floor(ctLR),
+			focus_length
+		}
 	end
 	obj.setoption("camera_param",cam)
 end
